@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FinanceTracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+<%= render "layouts/navigation" %>
+
+<div class="container">
+  
+
+<%= render "layouts/messages"%>
+
+
+<!-- This is the navbar -->
+    <%= yield %>
+    <%= link_to "Logout",  destroy_user_session_path, method: :delete %>
+</div>
+  </body>
+</html>
