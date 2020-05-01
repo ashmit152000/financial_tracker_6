@@ -19,3 +19,22 @@ require("jquery")
 import "bootstrap"
 
 
+$(document).ready(function(){
+
+	var timer = null;
+
+	$('#input').on('keyup', function(){
+		// clearTimeout(timer);
+		// timer = setTimeout(doStuff,1000);
+
+		doStuff();
+		
+
+	})
+
+	function doStuff(){
+		$('.form-sub').click();
+	}
+
+
+})

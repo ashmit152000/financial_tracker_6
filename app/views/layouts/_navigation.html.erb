@@ -48,10 +48,16 @@
   </div>
 <% end %>
 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+   
+    <%= form_tag(search_friends_path,method: :get,remote: true,class: "form-inline my-2 my-lg-0",id: "input") do  %>
+      <%= text_field_tag :friend, params[:friend],placeholder: "Search Users", class: "form-control mr-sm-2" %>
+
+      <%= button_tag type: :submit, class: "btn btn-outline-success my-2 my-sm-0 form-sub" do %>
+            <%= "Search" %>
+        <% end %>
+    <% end %>
   </div>
   </div>
 </nav>
+
+<div id="friend_result"></div>

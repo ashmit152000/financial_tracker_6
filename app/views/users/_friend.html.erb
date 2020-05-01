@@ -1,0 +1,15 @@
+
+
+<% if @friend %>
+<%= @friend.email %> | <% if already_friend?(@friend)  %>
+
+<span class="badge badge-secondary">You are already friends</span>
+
+<% else %>
+
+	<%= link_to "Add friend", add_friend_path(id: @friend.id), class: "btn btn-success",method: :post %>
+		
+<% end %>
+<% else %>
+<%= "This user is not present" %>
+<% end %>

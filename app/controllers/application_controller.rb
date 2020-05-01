@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
 	before_action :configure_permitted_parameters, if: :devise_controller?
-	helper_method :only_ten?, :already_added?
+	helper_method :only_ten?, :already_added?, :already_friend?
 
 	def only_ten?
 		if current_user.stocks.count >= 10
@@ -24,6 +24,16 @@ class ApplicationController < ActionController::Base
 
 		end
 
+	end
+
+	def already_friend?(friend)
+		friendship = Friendship.where(user_id: current_user.id, friend_id: friend.id)
+
+		if friendship.first
+			return true
+		
+		
+		end
 	end
 
 

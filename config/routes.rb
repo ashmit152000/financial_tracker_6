@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
   get '/my_portfolio', to: "users#my_portfolio"
   get '/search_stocks',to: "stocks#search"
+  get '/search_friends',to:"stocks#friend"
+  post '/add_friend',to: "users#add_friend"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
