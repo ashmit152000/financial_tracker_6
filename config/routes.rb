@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   get '/search_stocks',to: "stocks#search"
   get '/search_friends',to:"stocks#friend"
   post '/add_friend',to: "users#add_friend"
+  get 'my_friends',to:"users#all_friends"
+  # delete '/my_friends/:id',:to => "users#destroy_friendships"
+  resources :friendships, only: [:destroy]
+  resources :users, only: [:show]
+  # resources :my_friends
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

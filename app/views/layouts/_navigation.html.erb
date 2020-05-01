@@ -12,24 +12,20 @@
         <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
         <%= link_to "My Portfolio", my_portfolio_path, class: "nav-link"%>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          My Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!-- <a class="dropdown-item" href="#">Action</a> -->
           <%= link_to "Edit user",  edit_user_registration_path, class: "dropdown-item"%>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to "My friends", my_friends_path, class: "dropdown-item"%>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+      
     </ul>
     <ul class="navbar-nav ml-auto">
 
@@ -50,7 +46,7 @@
 
    
     <%= form_tag(search_friends_path,method: :get,remote: true,class: "form-inline my-2 my-lg-0",id: "input") do  %>
-      <%= text_field_tag :friend, params[:friend],placeholder: "Search Users", class: "form-control mr-sm-2" %>
+      <%= text_field_tag :friend, params[:friend],placeholder: "Search Users", class: "form-control mr-sm-2",autocomplete: false %>
 
       <%= button_tag type: :submit, class: "btn btn-outline-success my-2 my-sm-0 form-sub" do %>
             <%= "Search" %>

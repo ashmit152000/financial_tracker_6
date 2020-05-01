@@ -5,8 +5,10 @@
 
 <span class="badge badge-secondary">You are already friends</span>
 
-<% else %>
+<% elsif @friend == current_user %>
 
+	<span class="badge badge-secondary">You cannot friend yourself</span>
+<% else %>
 	<%= link_to "Add friend", add_friend_path(id: @friend.id), class: "btn btn-success",method: :post %>
 		
 <% end %>

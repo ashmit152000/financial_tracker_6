@@ -22,19 +22,39 @@ import "bootstrap"
 $(document).ready(function(){
 
 	var timer = null;
+	
+	// var form = $('form#input')
 
-	$('#input').on('keyup', function(){
+	$('#friend').on('keyup', function(){
 		// clearTimeout(timer);
 		// timer = setTimeout(doStuff,1000);
-
-		doStuff();
 		
 
-	})
+		
 
-	function doStuff(){
-		$('.form-sub').click();
-	}
+		 if(!$(this).val()){
+
+            $('#friend_result').hide();
+
+        }
+        else{
+            
+            $('#friend_result').fadeIn(1,function(){
+                $('.form-sub').click();
+            });
+        
+         
+        }
+    
+
+
+     
+		
+		
+
+
+});
+	
 
 
 })
