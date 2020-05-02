@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only:[ :show ]
+
   def my_portfolio
   	@tracked_stocks = current_user.stocks
   end
@@ -15,10 +17,22 @@ class UsersController < ApplicationController
 
   def all_friends
     @friends = current_user.friends
+    respond_to do |format|
+      format.html
+      format.json {render json: @friends}
+    end
   end
 
   def show
     @user = User.find_by(id: params[:id])
+
+     respond_to do |format|
+      format.html
+      format.json {render json: @user}
+     end
+    
+     
+    
 
   end
 end

@@ -38,13 +38,17 @@ class StocksController < ApplicationController
     @friend = User.find_by(email: params[:friend])
     if @friend
       respond_to do |format|
+            format.json {render json: @friend}  
             format.js {render partial: 'users/friend'}
+             
         end
 
     else 
         respond_to do |format|
          flash.now[:alert] ="This user doesn't exist"
+          format.json {render json: @friend}
           format.js {render partial: 'users/friend'}
+
       end
 
     end
