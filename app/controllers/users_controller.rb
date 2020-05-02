@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   def my_portfolio
   	@tracked_stocks = current_user.stocks
+    respond_to do |format|
+      format.html
+      format.json {render json: @tracked_stocks}
+    end
   end
 
   def add_friend

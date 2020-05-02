@@ -11,12 +11,14 @@ class StocksController < ApplicationController
   		if @stock
         respond_to do |format|
             format.js {render partial: 'users/result'}
+            format.json { render json: @stock }
         end
   			
   		else
 			 respond_to do |format|
           flash.now[:alert] ="Please enter a valid symbol to search"
           format.js{render partial: 'users/result'}
+          format.json {render json: "Please enter a valid symbol" }
        end
 	
 			
@@ -28,6 +30,7 @@ class StocksController < ApplicationController
   	respond_to do |format|
           flash.now[:alert] ="Please enter a symbol to search"
           format.js{render partial: 'users/result'}
+          format.json {render json: "Please enter a symbol to search" }
        end
   end
 
